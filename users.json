@@ -1,0 +1,29 @@
+{
+    "676f05b505970": {
+        "username": "ubaidtech889@gmail.com",
+        "password": "$2y$10$Vf0mhj8opXfbMYInGNeBxuEIZ9w6zRWurSfle\/No3ESV8YC5md\/oG",
+        "fullname": "Abaidullah",
+        "roles": [
+            "user"
+        ],
+        "id": "676f05b505970"
+    },
+    "676f0608b5b16": {
+        "username": "farid@gmail.com",
+        "password": "$2y$10$xReuSHgbk3aTKSAIhmxvO.mHNTHXfKeoEtSZKIvPEConrvgn7ZQzy",
+        "fullname": "farid",
+        "roles": [
+            "user"
+        ],
+        "id": "676f0608b5b16"
+    },
+    "admin": {
+        "username": "admin@ikarrental.hu",
+        "password": "$2y$10$VmXe0b6onXW7bi.lOJp68O5JoS6RoKQ8EyGDWXwUxzYucjk4iGJfe",
+        "fullname": "Admin",
+        "roles": [
+            "admin"
+        ],
+        "id": "unique_admin_id"
+    }
+}

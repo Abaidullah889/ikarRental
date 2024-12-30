@@ -1,0 +1,546 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+}
+
+/* Header Styling */
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+header .nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+header .nav a.button {
+    background-color: #f3b017;
+    color: black;
+}
+
+header .nav a:hover {
+    background-color: #555;
+}
+
+header .nav a.profile-button {
+    display: inline-block;
+    width: 40px; /* Width of the circular button */
+    height: 40px; /* Height of the circular button */
+    border-radius: 50%; /* Make the button circular */
+    overflow: hidden; /* Ensure only the visible part of the image is shown */
+    border: 2px solid #f3b017; /* Add a border for styling */
+    margin-left: 15px; /* Maintain spacing with other elements */
+    vertical-align: middle; /* Align with adjacent elements */
+    position: relative; /* Required for proper positioning of the child img */
+}
+
+header .nav a.profile-button img {
+    position: absolute; /* Position the image inside the circle */
+    top: 0;
+    left: 0;
+    width: 100%; /* Stretch the image to fill the circle horizontally */
+    height: 100%; /* Stretch the image to fill the circle vertically */
+    object-fit: cover; /* Ensure the image covers the circular area without distortion */
+    object-position: center; /* Center the image within the circular button */
+    display: block; /* Eliminate inline gaps */
+}
+
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    margin-top: 100px; /* Adjust for fixed header */
+    padding: 40px;
+    width: 100%;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero button {
+    background-color: #f3b017;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    color: black;
+    transition: background-color 0.3s;
+}
+
+.hero button:hover {
+    background-color: #f7c94d;
+}
+
+/* Filter Form Styling */
+.filter-form {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.filter-form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 250px;
+}
+
+.filter-form label {
+    font-size: 1rem;
+}
+
+.filter-form input,
+.filter-form select {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+}
+
+/* Filter Button */
+.filter-form button {
+    background-color: #ffc107;
+    margin-top: 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+}
+
+/* Car List Layout */
+.car-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+/* Car Card Styling */
+.car-card {
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.car-card:hover {
+    transform: scale(1.05);
+}
+
+.car-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.car-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.car-price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f3b017;
+    margin: 10px 0;
+}
+
+.car-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    margin: 5px 0;
+}
+
+.car-details {
+    font-size: 1rem;
+    color: #ccc;
+    margin: 5px 0;
+}
+
+.book-button {
+    display: inline-block; /* Makes the <a> behave like a button */
+    background-color: #f3b017;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: black;
+    text-decoration: none; /* Removes underline from the link */
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease-in-out;
+    text-align: center; /* Centers the text */
+}
+
+.book-button:hover {
+    background-color: #f7c94d; /* Slightly lighter color on hover */
+}
+
+.edit-button {
+    display: inline-block; /* Makes the <a> behave like a button */
+    background-color: #2548d1;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: black;
+    text-decoration: none; /* Removes underline from the link */
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease-in-out;
+    text-align: center; /* Centers the text */
+}
+
+.edit-button:hover {
+    background-color: #9fbbee; /* Slightly lighter color on hover */
+}
+
+.delete-button {
+    display: inline-block; /* Makes the <a> behave like a button */
+    background-color: #ea0c0c;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: black;
+    text-decoration: none; /* Removes underline from the link */
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease-in-out;
+    text-align: center; /* Centers the text */
+}
+
+.delete-button:hover {
+    background-color: #f05a5a; /* Slightly lighter color on hover */
+}
+
+/*edit car page container*/
+.edit-container{
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px; /* Add space for header */
+}
+
+/* Login and Registration Pages */
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 150px; /* Add space for header */
+}
+
+h1 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: auto;
+    padding: 10px 30px;
+    font-size: 14px;
+    background-color: #f3b017;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+button:hover {
+    background-color: #f7c94d;
+    transform: scale(1.05);
+}
+
+.global-error-message{
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: left;
+}
+
+/* Profile Page */
+
+.profile-container{
+    width: 100%;
+    padding: 20px;
+    margin-top: 100px; /* Add space for header */
+
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #f3b017;
+    object-fit: cover;
+}
+
+.profile h1 {
+    margin: 10px 0 5px;
+}
+
+.logged-in {
+    font-size: 1rem;
+    color: #aaa;
+}
+
+.reservations {
+    
+    margin-top: 20px;
+}
+
+.reservations h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* Reserved Cars Grid Container */
+.reserved-cars-container {
+    padding: 20px;
+    background-color: #181818;
+    color: white;
+}
+
+.reserved-cars-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between cards */
+    margin-top: 20px;
+}
+
+/* Reserved Cars Card */
+.reserved-cars-card {
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.reserved-cars-card:hover {
+    transform: scale(1.05); /* Slight hover effect */
+}
+
+.reserved-cars-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover; /* Ensure the image fits without distortion */
+    border-radius: 10px 10px 0 0;
+}
+
+.reserved-cars-info {
+    margin-top: 10px;
+}
+
+.reserved-cars-info .date {
+    font-size: 0.9rem;
+    color: #f3b017;
+    margin-bottom: 5px;
+}
+
+.reserved-cars-info .reserved-cars-name {
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    margin: 5px 0;
+}
+
+.reserved-cars-info .reserved-cars-details {
+    font-size: 0.8rem;
+    color: #ccc;
+    margin: 5px 0;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    header nav a {
+        margin-left: 10px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .car-list {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .car-card {
+        padding: 12px;
+    }
+
+    .filter-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filter-form div {
+        width: 100%;
+    }
+
+    .filter-form input,
+    .filter-form select {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .car-list {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .book-button {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .car-card {
+        padding: 10px;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero button {
+        font-size: 0.9rem;
+    }
+
+    .filter-form input,
+    .filter-form select {
+        font-size: 0.9rem;
+    }
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    /* Adjust header font size below 420px */
+    @media (max-width: 420px) {
+        header .logo {
+            font-size: 18px;
+        }
+
+        header .nav {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        header .nav a {
+            padding: 5px 15px;
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .hero h1 {
+        font-size: 1.3rem; /* Adjust the font size further for small screens */
+    }
+
+    .hero button {
+        font-size: 0.8rem;
+    }
+
+    header .logo {
+        font-size: 16px; /* Further reduce the logo font size */
+    }
+
+    .header {
+        font-size: 0.1rem;
+    }
+}

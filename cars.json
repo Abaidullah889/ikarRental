@@ -1,0 +1,68 @@
+{
+    "1": {
+        "id": 1,
+        "brand": "Honda",
+        "model": "Civic",
+        "year": 2019,
+        "transmission": "manual",
+        "fuel_type": "petrol",
+        "passengers": 5,
+        "daily_price_huf": 16250,
+        "image": "https:\/\/media.ed.edmunds-media.com\/honda\/civic\/2019\/oem\/2019_honda_civic_sedan_touring_fq_oem_1_815.jpg"
+    },
+    "3": {
+        "id": 3,
+        "brand": "Volkswagen",
+        "model": "farid",
+        "year": 2014,
+        "transmission": "manual",
+        "fuel_type": "petrol",
+        "passengers": 5,
+        "daily_price_huf": 13000,
+        "image": "https:\/\/media.ed.edmunds-media.com\/volkswagen\/jetta\/2025\/oem\/2025_volkswagen_jetta_sedan_sel_fq_oem_1_815.jpg"
+    },
+    "4": {
+        "id": 4,
+        "brand": "Subaru",
+        "model": "Impreza",
+        "year": 2012,
+        "transmission": "manual",
+        "fuel_type": "petrol",
+        "passengers": 5,
+        "daily_price_huf": 12000,
+        "image": "https:\/\/media.ed.edmunds-media.com\/subaru\/impreza\/2022\/oem\/2022_subaru_impreza_4dr-hatchback_limited_fq_oem_1_815.jpg"
+    },
+    "5": {
+        "id": 5,
+        "brand": "Ford",
+        "model": "Focus",
+        "year": 2018,
+        "transmission": "Automatic",
+        "fuel_type": "Petrol",
+        "passengers": 5,
+        "daily_price_huf": 13500,
+        "image": "https:\/\/media.ed.edmunds-media.com\/ford\/focus\/2013\/oem\/2013_ford_focus_4dr-hatchback_bev_fq_oem_1_815.jpg"
+    },
+    "6": {
+        "id": 6,
+        "brand": "Tesla",
+        "model": "Model S",
+        "year": 2021,
+        "transmission": "Automatic",
+        "fuel_type": "Electric",
+        "passengers": 5,
+        "daily_price_huf": 45000,
+        "image": "https:\/\/media.ed.edmunds-media.com\/tesla\/model-s\/2021\/oem\/2021_tesla_model-s_sedan_plaid_fq_oem_1_815.jpg"
+    },
+    "6771a4ae63858": {
+        "id": "6771a4ae63858",
+        "brand": "Buggati ",
+        "model": "cherron",
+        "year": 2025,
+        "transmission": "automatic",
+        "fuel_type": "diesel",
+        "passengers": 2,
+        "daily_price_huf": 3000000,
+        "image": "https:\/\/robbreport.com\/wp-content\/uploads\/2024\/01\/1500chiron01.jpg?w=1000"
+    }
+}
