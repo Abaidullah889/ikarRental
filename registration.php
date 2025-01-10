@@ -90,9 +90,9 @@ if (count($_POST) > 0) {
 
     <div class="container">
         <h1>Sign Up</h1>
-        <!-- global error message -->
+
         <?php if (isset($errors['global'])): ?>
-            <div class="global-error-message"><?= htmlspecialchars($errors['global']) ?></div>
+            <div class="global-error-message"><?= ($errors['global']) ?></div>
         <?php endif; ?>
 
         <form action="" method="POST" novalidate>
@@ -100,28 +100,28 @@ if (count($_POST) > 0) {
                 <label for="fullname">Full name</label>
                 <input type="text" id="fullname" name="fullname">
                 <?php if (isset($errors['fullname'])): ?>
-                    <span class="error-message"><?= htmlspecialchars($errors['fullname']) ?></span>
+                    <span class="error-message"><?= ($errors['fullname']) ?></span>
                 <?php endif; ?>
             </div>
             <div class="form-group">
                 <label for="email">Email address</label>
                 <input type="email" id="email" name="email" >
                 <?php if (isset($errors['email'])): ?>
-                    <span class="error-message"><?= htmlspecialchars($errors['email']) ?></span>
+                    <span class="error-message"><?= ($errors['email']) ?></span>
                 <?php endif; ?>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" >
                 <?php if (isset($errors['password'])): ?>
-                    <span class="error-message"><?= htmlspecialchars($errors['password']) ?></span>
+                    <span class="error-message"><?= ($errors['password']) ?></span>
                 <?php endif; ?>
             </div>
             <div class="form-group">
                 <label for="password-again">Password again</label>
                 <input type="password" id="password-again" name="password-again" >
                 <?php if (isset($errors['password-again'])): ?>
-                    <span class="error-message"><?= htmlspecialchars($errors['password-again']) ?></span>
+                    <span class="error-message"><?= ($errors['password-again']) ?></span>
                 <?php endif; ?>
             </div>
             <button type="submit">Register</button>

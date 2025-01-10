@@ -1,5 +1,6 @@
 <?php
-session_start();
+
+
 include_once("userstorage.php");
 include_once("utils.php");
 include_once("auth.php");

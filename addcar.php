@@ -1,15 +1,15 @@
 <?php
 include_once('carstorage.php');
+include_once('userstorage.php');
 include_once('auth.php');
 include_once('utils.php');
 
-// session_start();
-// $auth = new Auth(new UserStorage());
+session_start();
+$auth = new Auth(new UserStorage());
 
-// // Check if the user is authenticated
-// if (!$auth->is_authenticated()) {
-//     redirect("homepage.php");
-// }
+if (!$auth->is_authenticated()) {
+    redirect("homepage.php");
+}
 
 // Initialize variables
 
@@ -20,7 +20,7 @@ $cars = $carStorage->findAll();
 $errors = [];
 $data = [];
 
-// Handle form submission
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = $_POST;
     if (validateAddForm($_POST, $errors)) {
@@ -40,8 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ];
 
 
-        $carStorage->addCar($newCar); // Add the new car
-        redirect("adminhomepage.php"); // Redirect to the main page
+        $carStorage->addCar($newCar); 
+        redirect("adminhomepage.php"); 
     }
 }
 

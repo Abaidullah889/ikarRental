@@ -12,15 +12,13 @@ class BookingsStorage extends Storage {
     }
 
     public function addBooking($car, $fromDate, $untilDate, $user) {
-        // Create a new booking record
         $newBooking = [
-            'car_id' => $car,           // Car ID
-            'user_id' => $user,         // User ID
-            'from_date' => $fromDate,         // Booking start date
-            'until_date' => $untilDate        // Booking end date
+            'car_id' => $car,           
+            'user_id' => $user,         
+            'from_date' => $fromDate,         
+            'until_date' => $untilDate        
         ];
 
-        // Add the booking and return its ID
         return $this->add($newBooking);
     }
 

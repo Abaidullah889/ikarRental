@@ -1,16 +1,3 @@
-<?php
-
-
-
-
-$name = $_GET['name'];
-$from = $_GET['from'];
-$until = $_GET['until'];
-
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -30,7 +30,7 @@ function validate($post, &$data, &$errors)
 }
 
 
-// main
+
 session_start();
 $user_storage = new UserStorage();
 $auth = new Auth($user_storage);
@@ -45,14 +45,14 @@ if (count($_POST) > 0) {
         } else {
             $auth->login($logged_in_user);
 
-            // Check if user is admin
+            
             if (in_array('admin', $logged_in_user['roles'])) 
             {
-                redirect('adminhomepage.php'); // Redirect admin
+                redirect('adminhomepage.php'); 
             } 
             else 
             {
-                redirect('userhomepage.php'); // Redirect normal user
+                redirect('userhomepage.php'); 
             }
         }
     }

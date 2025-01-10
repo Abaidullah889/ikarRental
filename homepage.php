@@ -1,5 +1,4 @@
 <?php
-// Example car data (Add image paths correctly)
 
 include_once('carstorage.php');
 include_once('auth.php');
@@ -25,7 +24,7 @@ function validateFilter($GET, &$data, &$errors)
         $data['seats'] = (int)$GET["seats"];
     }
 
-        // Validate 'from' - ensure it's a valid date
+        // Validate 'from'
     if (isset($GET["from"]) && trim($GET["from"]) != '') {
         $data['from'] = $GET["from"];
         if (strtotime($data['from']) === false) {
@@ -33,7 +32,7 @@ function validateFilter($GET, &$data, &$errors)
         }
     }
 
-    // Validate 'until' - ensure it's a valid date
+    // Validate 'until'
     if (isset($GET["until"]) && trim($GET["until"]) != '') {
         $data['until'] = $GET["until"];
         if (strtotime($data['until']) === false) {
@@ -48,7 +47,7 @@ function validateFilter($GET, &$data, &$errors)
     }
 
 
-    // Validate 'transmission' - must be either 'automatic' or 'manual'
+    // Validate 'transmission'
     if (isset($GET["transmission"])) {
         $data['transmission'] = $GET["transmission"];
         if ($data['transmission'] !== '' && $data['transmission'] !== 'automatic' && $data['transmission'] !== 'manual' && $data['transmission'] !== 'any' ) {
@@ -56,7 +55,7 @@ function validateFilter($GET, &$data, &$errors)
         }
     }
 
-        // Validate 'min_price' - ensure it's a valid number
+        // Validate 'min_price'
     if (isset($GET["min_price"])) {
         if (!is_numeric($GET["min_price"])) {
             $errors['min_price'] = "Min Price must be a valid number.";
@@ -67,7 +66,7 @@ function validateFilter($GET, &$data, &$errors)
         }
     }
 
-    // Validate 'max_price' - ensure it's a valid number
+    // Validate 'max_price'
     if (isset($GET["max_price"])) {
         if (!is_numeric($GET["max_price"])) {
             $errors['max_price'] = "Max Price must be a valid number.";
@@ -77,7 +76,7 @@ function validateFilter($GET, &$data, &$errors)
             $data['max_price'] = (int)$GET["max_price"];
         }
 
-        // Ensure 'min_price' is not greater than 'max_price'
+
         if (isset($data['min_price']) && isset($data['max_price'])) {
             if ($data['min_price'] > $data['max_price']) {
                 $errors['min_price'] = "Min Price cannot be greater than Max Price.";
@@ -97,9 +96,8 @@ $cars = $CarsStorage->findAll();
 $bookingstorage = new BookingsStorage();
 $bookings = $bookingstorage->findAll();
 
-$filtered_cars = $cars; // Default to showing all cars
+$filtered_cars = $cars; 
 
-// Main
 $errors = [];
 $data = [];
 
@@ -108,17 +106,16 @@ $data = [];
 function isCarAvailable($carId, $fromDate, $untilDate, $bookings) {
     foreach ($bookings as $booking) {
         if ($booking['car_id'] == ($carId)) {
-            // Check for overlapping date ranges
             if (
                 ($fromDate <= $booking['until_date'] && $fromDate >= $booking['from_date']) ||
                 ($untilDate <= $booking['until_date'] && $untilDate >= $booking['from_date']) ||
                 ($fromDate <= $booking['from_date'] && $untilDate >= $booking['until_date'])
             ) {
-                return false; // Car is not available
+                return false; 
             }
         }
     }
-    return true; // Car is available
+    return true; 
 }
 
 if (count($_GET) > 0) {
@@ -192,21 +189,21 @@ if (count($_GET) > 0) {
                     <label for="seats">Seats</label>
                 <input type="number" name="seats" id="seats" min="0" value="<?php echo htmlspecialchars($_GET['seats'] ?? ''); ?>">
             <?php if (isset($errors['seats'])): ?>
-                <span class="error-message"><?= htmlspecialchars($errors['seats']) ?></span>
+                <span class="error-message"><?= ($errors['seats']) ?></span>
             <?php endif; ?>
         </div>
         <div>
             <label for="from">From</label>
-            <input type="date" name="from" id="from" value="<?php echo htmlspecialchars($_GET['from'] ?? ''); ?>">
+            <input type="date" name="from" id="from" value="<?php echo ($_GET['from'] ?? ''); ?>">
             <?php if (isset($errors['from'])): ?>
-                <span class="error-message"><?= htmlspecialchars($errors['from']) ?></span>
+                <span class="error-message"><?= ($errors['from']) ?></span>
             <?php endif; ?>
         </div>
         <div>
             <label for="until">Until</label>
-            <input type="date" name="until" id="until" value="<?php echo htmlspecialchars($_GET['until'] ?? ''); ?>">
+            <input type="date" name="until" id="until" value="<?php echo ($_GET['until'] ?? ''); ?>">
             <?php if (isset($errors['until'])): ?>
-                <span class="error-message"><?= htmlspecialchars($errors['until']) ?></span>
+                <span class="error-message"><?= ($errors['until']) ?></span>
             <?php endif; ?>
         </div>
         <div>
@@ -217,21 +214,21 @@ if (count($_GET) > 0) {
                 <option value="manual" <?php echo ($_GET['transmission'] ?? '') === 'manual' ? 'selected' : ''; ?>>Manual</option>
             </select>
             <?php if (isset($errors['transmission'])): ?>
-                <span class="error-message"><?= htmlspecialchars($errors['transmission']) ?></span>
+                <span class="error-message"><?= ($errors['transmission']) ?></span>
             <?php endif; ?>
         </div>
         <div>
             <label for="min_price">Min Price</label>
-            <input type="number" name="min_price" id="min_price" value="<?php echo htmlspecialchars($_GET['min_price'] ?? 0); ?>">
+            <input type="number" name="min_price" id="min_price" value="<?php echo ($_GET['min_price'] ?? 0); ?>">
             <?php if (isset($errors['min_price'])): ?>
-                <span class="error-message"><?= htmlspecialchars($errors['min_price']) ?></span>
+                <span class="error-message"><?= ($errors['min_price']) ?></span>
             <?php endif; ?>
         </div>
         <div>
             <label for="max_price">Max Price</label>
-            <input type="number" name="max_price" id="max_price" value="<?php echo htmlspecialchars($_GET['max_price'] ?? 99999); ?>">
+            <input type="number" name="max_price" id="max_price" value="<?php echo ($_GET['max_price'] ?? 99999); ?>">
             <?php if (isset($errors['max_price'])): ?>
-                <span class="error-message"><?= htmlspecialchars($errors['max_price']) ?></span>
+                <span class="error-message"><?= ($errors['max_price']) ?></span>
             <?php endif; ?>
         </div>
         <button type="submit">Filter</button>
@@ -245,12 +242,12 @@ if (count($_GET) > 0) {
     <?php foreach ($filtered_cars as $car): ?>
         <div class="car-card">
             <div class="car-image-container">
-                <img src="<?php echo htmlspecialchars($car['image']); ?>" alt="<?php echo htmlspecialchars($car['brand']); ?>" class="car-image">
+                <img src="<?php echo ($car['image']); ?>" alt="<?php echo ($car['brand']); ?>" class="car-image">
             </div>
             <div class="car-info">
-                <p class="car-price"><?php echo number_format($car['daily_price_huf']); ?> Ft</p>
-                <h7 class="car-name"><?php echo htmlspecialchars($car['brand']); ?> - <?php echo htmlspecialchars($car['model']); ?> </h7>
-                <p class="car-details"><?php echo htmlspecialchars($car['passengers']); ?> seats - <?php echo ucfirst($car['transmission']); ?> transmission</p>
+                <p class="car-price"><?php echo ($car['daily_price_huf']); ?> Ft</p>
+                <h7 class="car-name"><?php echo ($car['brand']); ?> - <?php echo ($car['model']); ?> </h7>
+                <p class="car-details"><?php echo ($car['passengers']); ?> seats - <?php echo ($car['transmission']); ?> transmission</p>
                 <a href="cardetail.php?id=<?php echo $car['id']; ?>" 
                     class="book-button">
                     Book

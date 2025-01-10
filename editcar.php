@@ -2,21 +2,22 @@
 include_once('carstorage.php');
 include_once('auth.php');
 include_once('utils.php');
+include_once('userstorage.php');
 
-// session_start();
-// $auth = new Auth(new UserStorage());
+session_start();
+$auth = new Auth(new UserStorage());
 
-// // Check if the user is authenticated
-// if (!$auth->is_authenticated()) {
-//     redirect("homepage.php");
-// }
+
+if (!$auth->is_authenticated()) {
+    redirect("homepage.php");
+}
 
 // Initialize variables
 $errors = [];
 $data = [];
 $carId = isset($_GET['id']) ? (int)$_GET['id'] : null;
 
-// Check if a valid ID is provided
+
 if ($carId === null) {
     redirect("homepage.php");
 }
@@ -24,7 +25,7 @@ if ($carId === null) {
 $carStorage = new CarStorage();
 $car = $carStorage->findById($carId);
 
-// If car not found, redirect
+
 if ($car === null) {
     redirect("homepage.php");
 }
@@ -75,7 +76,6 @@ function validateEditForm($post, &$errors) {
 
 
 
-// Validate and update the car details
 if (count($_POST) > 0) {
 
     if (validateEditForm($_POST, $errors)) {
@@ -93,7 +93,7 @@ if (count($_POST) > 0) {
         ];
 
         $carStorage->update($carId, $updatedCar);
-        redirect("adminhomepage.php"); // Redirect to the main page
+        redirect("adminhomepage.php"); 
     }
 }
 
@@ -123,23 +123,23 @@ if (count($_POST) > 0) {
         <form method="POST" novalidate>
             <div class="form-group">
                 <label for="brand">Brand</label>
-                <input type="text" name="brand" id="brand" value="<?= htmlspecialchars($car['brand']) ?>">
+                <input type="text" name="brand" id="brand" value="<?= ($car['brand']) ?>">
                 <?php if (isset($errors['brand'])): ?>
-                    <span class="error-message"><?= htmlspecialchars($errors['brand']) ?></span>
+                    <span class="error-message"><?= ($errors['brand']) ?></span>
                 <?php endif; ?>
             </div>
             <div class="form-group">
                 <label for="model">Model</label>
-                <input type="text" name="model" id="model" value="<?= htmlspecialchars($car['model']) ?>">
+                <input type="text" name="model" id="model" value="<?= ($car['model']) ?>">
                 <?php if (isset($errors['model'])): ?>
-                    <span class="error-message"><?= htmlspecialchars($errors['model']) ?></span>
+                    <span class="error-message"><?= ($errors['model']) ?></span>
                 <?php endif; ?>
             </div>
             <div class="form-group">
                 <label for="year">Year</label>
-                <input type="number" name="year" id="year" value="<?= htmlspecialchars($car['year']) ?>">
+                <input type="number" name="year" id="year" value="<?= ($car['year']) ?>">
                 <?php if (isset($errors['year'])): ?>
-                    <span class="error-message"><?= htmlspecialchars($errors['year']) ?></span>
+                    <span class="error-message"><?= ($errors['year']) ?></span>
                 <?php endif; ?>
             </div>
             <div class="form-group">
@@ -149,7 +149,7 @@ if (count($_POST) > 0) {
                     <option value="automatic" <?= $car['transmission'] === 'automatic' ? 'selected' : '' ?>>Automatic</option>
                 </select>
                 <?php if (isset($errors['transmission'])): ?>
-                    <span class="error-message"><?= htmlspecialchars($errors['transmission']) ?></span>
+                    <span class="error-message"><?= ($errors['transmission']) ?></span>
                 <?php endif; ?>
             </div>
             <div class="form-group">

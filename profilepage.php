@@ -51,7 +51,7 @@ $userBookings = array_filter($bookings, function ($booking) use ($userId) {
     <header>
         <div class="logo"><a href="homepage.php">iKarRental</a></div>
         <div class="nav">
-            <a href="profile.php" class="profile-button">
+            <a href="profilepage.php" class="profile-button">
                 <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Profile">
             </a>              
             <a href="logout.php" class="button">Logout</a>
