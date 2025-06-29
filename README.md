@@ -31,3 +31,7 @@ ELTE Academic and Examination Regulations, Faculty of Informatics Special Provis
 ### Bonus Tasks (max 5 points) 
 - [X] 3.0 points Booking: only available dates can be selected, e.g., displayed in a calendar view 
 - [X] 2.0 points AJAX: booking confirmation and feedback are handled via AJAX, without redirecting to a new page; instead, a custom modal (not an alert) is displayed without refreshing the page.
+
+
+### How to run?
+Install PHP server extension on vs code. 
